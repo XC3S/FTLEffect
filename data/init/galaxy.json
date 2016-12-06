@@ -1,0 +1,28 @@
+[
+	{
+		"id": "atlas",
+		"name" : "Atlas",
+		"background": ".../image/path.png",
+		"sector": [{
+				"id": "atlas_sector_1",
+				"position": {
+					"x": 50.00,
+					"y": 50.00
+				},
+				"transitions": [
+					"atlas_sector_2"
+				]
+			},
+			{
+				"id": "atlas_sector_2",
+				"position": {
+					"x": 48.00,
+					"y": 45.00
+				},
+				"transitions": [
+					"atlas_sector_1"
+				]				
+			}
+		]
+	}
+]
