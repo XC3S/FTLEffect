@@ -4,5 +4,5 @@ module.exports = function(io,fs){
 }
 
 function importGalaxys(fs){
-	return JSON.parse(fs.readFileSync("../data/init/galaxy.json"));
+	return JSON.parse(fs.readFileSync("./data/init/galaxys/galaxy.json"));
 }
