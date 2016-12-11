@@ -25,6 +25,7 @@ app.use(sassMiddleware({
 	outputSyle: 'compressed'
 }));
 
+// host client files
 app.use('/js', express.static(__dirname + '/client/js'));
 app.use('/css', express.static(__dirname + '/client/css'));
 app.use('/gameviews', express.static(__dirname + '/client/gameviews'));
