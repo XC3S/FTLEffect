@@ -1,4 +1,5 @@
 var _ = require('underscore');
+var provider = require("../../server/misc/provider.js");
 
 module.exports = function(io,fs){
 	var galaxys = importGalaxys(fs);

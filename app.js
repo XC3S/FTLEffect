@@ -34,6 +34,7 @@ app.use('/gameviews', express.static(__dirname + '/client/gameviews'));
 app.use('/images', express.static(__dirname + '/client/images'));
 
 // game logic
-require("./server/galaxy/galaxyManager.js")(io,fs);
-require("./server/player/playerManager.js")(io,fs);
-require("./server/ship/shipManager.js")(io,fs);
+var provider = require("./server/misc/provider.js");
+provider.registerManager("galaxyManager",require("./server/galaxy/galaxyManager.js")(io,fs));
+provider.registerManager("playerManager",require("./server/player/playerManager.js")(io,fs));
+provider.registerManager("shipManager",require("./server/ship/shipManager.js")(io,fs));

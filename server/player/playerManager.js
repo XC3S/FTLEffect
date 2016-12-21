@@ -1,10 +1,9 @@
 var _ = require('underscore');
+var provider = require("../../server/misc/provider.js");
 
-
+var connectedPlayers = [];
 
 module.exports = function(io,fs){
-	
-
 	bindListeners(io);
 }
 
