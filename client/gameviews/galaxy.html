@@ -1,1 +1,15 @@
-<h1>Galaxy Navigation here</h1>
+<div ng-controller="galaxyController">
+	<h1>Galaxy: {{getGalaxyName()}}</h1>
+	<div class="galaxy">
+		<img ng-src="{{getGalaxyBackgroundImage()}}">
+		<div class="sections">
+			<div class="section" 
+				 ng-repeat="section in getSectorList()"
+				 ng-class="{'current-section': isCurrentSector(section)}"
+				 ng-click="travelToSection(section)"
+				 title="{{section.id}}" 
+				 style="left: {{section.position.x}}%; top: {{section.position.y}}%;">
+			</div>
+		</div>
+	</div>
+</div>

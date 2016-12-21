@@ -22,14 +22,18 @@ app.use(sassMiddleware({
 	src: __dirname + '/client/scss',
 	dest: __dirname + '/client/css',
 	debug: true,
-	outputSyle: 'compressed'
+	outputSyle: 'compressed',
+	prefix: '/css',
+	force: true
 }));
 
 // host client files
 app.use('/js', express.static(__dirname + '/client/js'));
 app.use('/css', express.static(__dirname + '/client/css'));
 app.use('/gameviews', express.static(__dirname + '/client/gameviews'));
+app.use('/images', express.static(__dirname + '/client/images'));
 
 // game logic
 require("./server/galaxy/galaxyManager.js")(io,fs);
+require("./server/player/playerManager.js")(io,fs);
 require("./server/ship/shipManager.js")(io,fs);

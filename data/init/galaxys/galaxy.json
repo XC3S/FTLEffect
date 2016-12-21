@@ -2,7 +2,7 @@
 	{
 		"id": "atlas",
 		"name" : "Atlas",
-		"background": ".../image/path.png",
+		"background": "/images/backgrounds/atlas_background.png",
 		"sector": [{
 				"id": "atlas_sector_1",
 				"position": {
