@@ -1,6 +1,8 @@
 var _ = require('underscore');
 var provider = require("../../server/misc/provider.js");
 
+// @todo: refactor export, provide some getter and setter functions to manage player and access player informations
+
 var connectedPlayers = [];
 
 module.exports = function(io,fs){
@@ -20,7 +22,17 @@ function bindListeners(io){
 		});
 
 		socket.on('travelToSection',function(sectorId){
-			console.log(socket.id,': travel request to ', sectorId);
+			var galaxyManager = provider.getManager("galaxyManager");
+
+			var player = getPlayerByConnectionID(socket.id);
+			//console.log("test:",player.currentSector,"@",player.galaxy);
+			if(galaxyManager.isValidTravelRoute(player.galaxy,player.currentSector,sectorId)){
+				player.currentSector = sectorId;
+				replicatePlayerInformation(socket);
+				console.log("player ",socket.id," traveled to ", sectorId);
+			}
+
+			//console.log(socket.id,': travel request to ', sectorId);
 		});
 	});
 };
@@ -47,3 +59,15 @@ function createPlayer(connectionId){
 	console.log("created player for : ",connectionId);
 	connectedPlayers.push(player);
 }
+
+/* player state
+
+{
+	isTraveling: false,
+	isFighting: false,
+	travel: {
+		destination: 
+	}
+}
+
+*/

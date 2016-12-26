@@ -9,8 +9,10 @@
 					"x": 50.00,
 					"y": 50.00
 				},
-				"transitions": [
-					"atlas_sector_2"
+				"transitions": [{
+						"to":"atlas_sector_2",
+						"duration": 120.00
+					}
 				]
 			},
 			{
@@ -19,9 +21,23 @@
 					"x": 48.00,
 					"y": 45.00
 				},
-				"transitions": [
-					"atlas_sector_1"
-				]				
+				"transitions": [{
+						"to":"atlas_sector_1",
+						"duration": 120.00
+					}
+				]			
+			},
+			{
+				"id": "atlas_sector_3",
+				"position": {
+					"x": 51.00,
+					"y": 65.00
+				},
+				"transitions": [{
+						"to":"atlas_sector_1",
+						"duration": 120.00
+					}
+				]			
 			}
 		]
 	}
